@@ -1,11 +1,12 @@
 package main
 
 import (
+	"github.com/David83656/go-api/initializers"
 	"github.com/gin-gonic/gin"
 )
 
-func init() {
-	initializers.loadEnv()
+func Init() {
+	initializers.LoadEnv()
 }
 
 func main() {
@@ -16,6 +17,7 @@ func main() {
 			"message": "pong",
 		})
 	})
+	Init()
 	r.Run()
 
 }
