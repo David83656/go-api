@@ -14,7 +14,8 @@ func Init() {
 func main() {
 
 	r := gin.Default()
-	r.GET("/", controllers.CourseCreate)
+	r.POST("/Courses", controllers.CourseCreate)
+	r.GET("/Courses", controllers.CourseIndex)
 	Init()
 	r.Run()
 
