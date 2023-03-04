@@ -4,7 +4,8 @@ import "gorm.io/gorm"
 
 type Course struct {
 	gorm.Model
-	Name     string
-	Category string
-	Duration int
+	Name        string
+	Category    string
+	Duration    int
+	Description string
 }

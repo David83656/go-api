@@ -8,7 +8,6 @@ import (
 	"gorm.io/gorm"
 )
 
-// Global Variables
 var DB *gorm.DB
 
 func ConnectToDB() {
