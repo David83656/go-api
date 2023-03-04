@@ -38,5 +38,39 @@ func CourseIndex(c *gin.Context) {
 }
 
 func CourseShow(c *gin.Context) {
+	id := c.Param("id")
+	var courses []models.Course
+	initializers.DB.Find(&courses, id)
 
+	c.JSON(200, gin.H{
+		"courses": courses,
+	})
+}
+
+func CourseUpdate(c *gin.Context) {
+	id := c.Param("id")
+
+	var courseName struct {
+		Name string
+	}
+	c.Bind(&courseName)
+
+	var courses []models.Course
+	initializers.DB.Find(&courses, id)
+
+	initializers.DB.Model(&courses).Updates(models.Course{
+		Name: courseName.Name,
+	})
+
+	c.JSON(200, gin.H{
+		"courses": courses,
+	})
+}
+
+func CourseDelete(c *gin.Context) {
+	id := c.Param("id")
+
+	initializers.DB.Delete(&models.Course{}, id)
+
+	c.Status(200)
 }

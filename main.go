@@ -15,7 +15,10 @@ func main() {
 
 	r := gin.Default()
 	r.POST("/Courses", controllers.CourseCreate)
+	r.PUT("/Courses/:id", controllers.CourseUpdate)
 	r.GET("/Courses", controllers.CourseIndex)
+	r.GET("/Courses/:id", controllers.CourseShow)
+	r.DELETE("/Courses/:id", controllers.CourseDelete)
 	Init()
 	r.Run()
 
